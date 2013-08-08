@@ -1,0 +1,29 @@
+%h1 Edit Bond Details
+%p Make changes to bond information below.
+%p#required-data &nbsp; * denotes required fields
+%form{:method => "post", :action => "/bond/" + @show_bond.id.to_s }
+	%label <font color="#B00000">*</font>CUSIP 
+	%input{:type => "text", :id => "cusip", :name => "cusip", :value => @show_bond.cusip}
+	%br
+	%label <font color="#B00000">*</font>Coupon
+	%input{:type => "text", :id => "coupon", :name => "coupon", :value => @show_bond.coupon}
+	%br
+	%label <font color="#B00000">*</font>Maturity
+	%input{:type => "text", :id => "maturity", :name => "maturity", :value => @show_bond.maturity}
+	%br
+	%label <font color="#B00000">*</font>Rating
+	%input{:type => "text", :id => "rating", :name => "rating", :value => @show_bond.rating}
+	%br
+	%label <font color="#B00000">*</font>Prospectus
+	%input{:type => "text", :id => "prospectus", :name => "prospectus", :value => @show_bond.prospectus}
+	%br
+	%label <font color="#B00000">*</font>Company
+	%select{:name => 'company_id'}
+		%option{:value => @show_bond.company_id}
+			- for company in @companies
+				- if company.id == @show_bond.company_id.to_i
+					%option{:value => company.id, :selected => "selected"} #{company.company_name}
+				- else
+					%option{:value => company.id} #{company.company_name}
+	%br
+	= button_to "Update Bond", "/bond/" + @show_bond.id.to_s, :method => :post

@@ -1,0 +1,23 @@
+%h1 Edit Company Details
+%p Make changes to company information below.
+%p#required-data &nbsp; * denotes required fields
+%form{:method => "post", :action => "/company/" + @show_company.id.to_s }
+	%label <font color="#B00000">*</font>Company Name 
+	%input{:type => "text", :id => "company_name", :name => "company_name", :value => @show_company.company_name}
+	%br
+	%label <font color="#B00000">*</font>Ticker
+	%input{:type => "text", :id => "ticker", :name => "ticker", :value => @show_company.ticker}
+	%br
+	%label <font color="#B00000">*</font>Website
+	%input{:type => "text", :id => "url", :name => "url", :value => @show_company.url}
+	%br
+	%label <font color="#B00000">*</font>Exchange
+	%select{:name => 'exchange_id'}
+		%option{:value => @show_company.exchange_id}
+			- for exchange in @exchanges
+				- if exchange.id == @show_company.exchange_id.to_i
+					%option{:value => exchange.id, :selected => "selected"} #{exchange.exchange_name}
+				- else
+					%option{:value => exchange.id} #{exchange.exchange_name}
+	%br
+	= button_to "Update Company", "/company/" + @show_company.id.to_s, :method => :post

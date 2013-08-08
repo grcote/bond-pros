@@ -1,0 +1,29 @@
+%h1 Enter a New Bond
+%h4 Create a new bond in the database
+%p#required-data &nbsp; * denotes required fields
+%form{:method => "post", :action => "/bond"}
+	%label <font color="#B00000">*</font>CUSIP
+	%input{:type => "text", :id => "cusip", :name => "cusip", :value => params[:cusip]}
+	%br
+	%label <font color="#B00000">*</font>Coupon
+	%input{:type => "text", :id => "coupon", :name => "coupon", :value => params[:coupon]}
+	%br
+	%label <font color="#B00000">*</font>Maturity
+	%input{:type => "text", :id => "maturity", :name => "maturity", :value => params[:maturity]}
+	%br
+	%label <font color="#B00000">*</font>Rating
+	%input{:type => "text", :id => "rating", :name => "rating", :value => params[:rating]}
+	%br
+	%label <font color="#B00000">*</font>Prospectus
+	%input{:type => "text", :id => "prospectus", :name => "prospectus", :value => params[:prospectus]}
+	%br
+	%label <font color="#B00000">*</font>Company
+	%select{:name => 'company_id'}
+		%option{:value => ""}
+			- for company in @companies
+				- if company.id == params[:company_id].to_i
+					%option{:value => company.id, :selected => "selected"} #{company.company_name}
+				- else
+					%option{:value => company.id} #{company.company_name}
+	%br
+	%input{:type => "submit", :value => "Create new bond"}

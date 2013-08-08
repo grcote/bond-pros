@@ -1,0 +1,23 @@
+%h1 Enter a New Company
+%h4 Create a new company in the database
+%p#required-data &nbsp; * denotes required fields
+%form{:method => "post", :action => "/company"}
+	%label <font color="#B00000">*</font>Company Name
+	%input{:type => "text", :id => "company_name", :name => "company_name", :value => params[:company_name]}
+	%br
+	%label <font color="#B00000">*</font>Ticker Symbol
+	%input{:type => "text", :id => "ticker", :name => "ticker", :value => params[:ticker]}
+	%br
+	%label <font color="#B00000">*</font>Website
+	%input{:type => "text", :id => "url", :name => "url", :value => params[:url]}
+	%br
+	%label <font color="#B00000">*</font>Exchange
+	%select{:name => 'exchange_id'}
+		%option{:value => ""}
+			- for exchange in @exchanges
+				- if exchange.id == params[:exchange_id].to_i
+					%option{:value => exchange.id, :selected => "selected"} #{exchange.exchange_name}
+				- else
+					%option{:value => exchange.id} #{exchange.exchange_name}
+	%br
+	%input{:type => "submit", :value => "Create new company"}

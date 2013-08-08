@@ -1,0 +1,29 @@
+%h1 Bonds tracked by BondPros
+%h4 View, Edit or Delete the Bonds in the database
+%table{:class => "table table-condensed table-striped"}
+	%tr
+	%th{:align => "left"} CUSIP
+	%th Company
+	%th Coupon
+	%th Maturity
+	%th Rating
+	%th{:align => "left"}  Prospectus
+	%tbody
+		- @bonds.each do |bond|
+			%tr			
+				%td
+					= bond.cusip
+				%td
+					= bond.company.company_name
+				%td{:align => "center"}
+					= bond.coupon
+				%td{:align => "center"}
+					= bond.maturity
+				%td{:align => "center"}
+					= bond.rating
+				%td
+					= bond.prospectus
+				%td
+					= link_to 'Edit', '/bond/' + bond.id.to_s
+				%td
+					= link_to 'Delete', '/bond/delete/' + bond.id.to_s

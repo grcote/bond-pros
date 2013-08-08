@@ -1,0 +1,23 @@
+%h1 Companies with bonds tracked by BondPros
+%h4 View, Edit or Delete the Companies in the database
+%table{:class => "table table-condensed table-striped"}
+	%tr
+	%th{:align => "left"} Company
+	%th Ticker
+	%th Website
+	%th Exchange
+	%tbody
+		- @companies.each do |company|
+			%tr			
+				%td
+					= company.company_name
+				%td
+					= company.ticker
+				%td{:align => "center"}
+					= company.url
+				%td{:align => "center"}
+					= company.exchange.exchange_name
+				%td
+					= link_to 'Edit', '/company/' + company.id.to_s
+				%td
+					= link_to 'Delete', '/company/delete/' + company.id.to_s
