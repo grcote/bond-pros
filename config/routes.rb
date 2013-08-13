@@ -1,5 +1,9 @@
 BondPros::Application.routes.draw do
 
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+
+  root :to => 'bond#index'
+
   get  "/bond"              => "bond#index",       :as => "bond_index"
   get  "/bond/new"          => "bond#new",         :as => "bond_new"
   post "/bond"              => "bond#create",      :as => "bond_create"

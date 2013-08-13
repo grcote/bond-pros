@@ -11,7 +11,6 @@ html {
 }
 
 body {
-	padding-top: 60px;
 }
 
 section {
@@ -107,4 +106,11 @@ footer {
 		margin-left: 10px;
 		}
 	}
+}
+
+.lotsa-padding {
+	padding:5px 10px 5px 10px;
+}
+.nav li {
+	padding:0px 15px 0px 15px;
 }

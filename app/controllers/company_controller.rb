@@ -63,11 +63,16 @@ class CompanyController < ApplicationController
   end
 
   def destroy
+    if delete_bonds = Bond.where({ :company_id => params[:id] })
+      for delete_bond in delete_bonds
+        delete_bond.destroy
+      end
+    end
+
     delete_company = Company.where({ :id => params[:id] }).first
     delete_company.destroy
     
-    flash[:success] = "Company was successfully deleted"  
+    flash[:success] = "Company and assciated bond(s) was/were successfully deleted"  
     redirect_to company_index_path
   end
-
 end

@@ -5,6 +5,8 @@ gem 'haml'
 gem 'haml-rails'
 # gem 'sass-rails', '~> 3.2'
 gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
