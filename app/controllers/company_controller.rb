@@ -1,7 +1,7 @@
 class CompanyController < ApplicationController
 
   before_filter :authenticate_user!
-  
+
   load_and_authorize_resource
 
 	def index
@@ -33,7 +33,6 @@ class CompanyController < ApplicationController
   def new
   	@exchanges = Exchange.order("exchange_name ASC")
   	render :new
-    binding.pry
   end
 
   def edit
