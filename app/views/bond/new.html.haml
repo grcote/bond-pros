@@ -3,6 +3,7 @@
 %p#required-data &nbsp; * denotes required fields
 %form{:method => "post", :action => "/bond"}
 	%input{:type => "hidden", :id => "authenticity_token", :name => "authenticity_token", :value => "5GM8hcnA4JK5gfP5S3mGdbMhiTxkk6R9auCcTHDjMEQ="}
+	-# Documentation of above: http://edgeguides.rubyonrails.org/form_helpers.html
 	%label <font color="#B00000">*</font>CUSIP
 	%input{:type => "text", :id => "cusip", :name => "cusip", :value => params[:cusip]}
 	%br

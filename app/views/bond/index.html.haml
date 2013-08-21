@@ -23,9 +23,9 @@
 					= bond.rating
 				%td
 					= bond.prospectus
-				- #if can? :update, @bonds
-				%td
-					= link_to 'Edit', '/bond/' + bond.id.to_s
-				- #if can? :destroy, @bonds
-				%td
-					= link_to 'Delete', '/bond/delete/' + bond.id.to_s
+				- if can? :update, @bonds
+					%td
+						= link_to 'Edit', '/bond/' + bond.id.to_s
+				- if can? :destroy, @bonds
+					%td
+						= link_to 'Delete', '/bond/delete/' + bond.id.to_s

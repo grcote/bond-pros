@@ -1,13 +1,15 @@
 class CompanyController < ApplicationController
 
-  # before_filter :authenticate_user!,
+  before_filter :authenticate_user!
+  
+  load_and_authorize_resource
 
 	def index
 		@companies = Company.order("lower(company_name) ASC")
     render :index
   end
 
-  def create
+  def create 
     @new_company = Company.new
     @new_company.company_name                 = params[:company_name]
     @new_company.ticker                  			= params[:ticker]
@@ -31,6 +33,7 @@ class CompanyController < ApplicationController
   def new
   	@exchanges = Exchange.order("exchange_name ASC")
   	render :new
+    binding.pry
   end
 
   def edit
