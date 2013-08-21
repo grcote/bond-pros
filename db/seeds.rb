@@ -8,9 +8,9 @@
 
 Bond.create({
     :company_id       => 1,
-    :coupon        		=> "7.5%",
-    :cusip    				=> "JamesBond",
-    :maturity     		=> "30 yr",
+    :coupon        	  => "7.5%",
+    :cusip    		  => "JamesBond",
+    :maturity     	  => "30 yr",
     :prospectus       => "www.hotmail.com", 
     :rating           => "AAA"
 })
@@ -95,3 +95,32 @@ Exchange.create({
 Exchange.create({
 		:exchange_name 				=> "NASDAQ"
 })
+
+User.create({
+        :username              => "grcote",
+        :email                 => "grcote@gmail.com",
+        :password              => "marcey",
+        :password_confirmation => "marcey",
+        :admin                 => false
+})
+
+User.create({
+        :username              => "ian",
+        :email                 => "ianmcveigh@yahoo.com",
+        :password              => "valerie",
+        :password_confirmation => "valerie",
+        :admin                 => false
+})
+
+User.create({
+        :username              => "admin",
+        :email                 => "admin@bondpros.com",
+        :password              => "boulder",
+        :password_confirmation => "boulder",
+        :admin                 => true
+})
+
+
+
+
+
