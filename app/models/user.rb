@@ -9,9 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   # attr_accessible :title, :body
 
-  validates_presence_of :username,
-  				:message => "Username is required"
+  validates_presence_of :username
 
-  validates_uniqueness_of :username,
-  				:message => "Username already exists" , :case_sensitive => false
+  validates_uniqueness_of :username
 end

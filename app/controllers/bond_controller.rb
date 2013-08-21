@@ -1,5 +1,7 @@
 class BondController < ApplicationController
 
+  #load_and_authorize_resource
+
   def index
     @bonds = Bond.order("lower(cusip) ASC")
     render :index
@@ -21,7 +23,7 @@ class BondController < ApplicationController
       flash[:error] = "| "
       @new_bond.errors.messages.to_a.each do | bond | 
         bond_string = bond[1][0] + " | "
-        flash[:error] += bond_string
+        flash.now[:error] += bond_string
       end    
       @companies = Company.order("company_name ASC")
       render :new
@@ -38,11 +40,6 @@ class BondController < ApplicationController
     @companies = Company.order("company_name ASC")
     render :edit
   end
-
-  # def edit_list
-  #   @bonds = Bond.order("lower(cusip) ASC")
-  #   render :edit_list
-  # end
 
   def show
   end
@@ -64,7 +61,7 @@ class BondController < ApplicationController
       flash[:error] = "| "
       @update_bond.errors.messages.to_a.each do | bond | 
         bond_string = bond[1][0] + " | "
-        flash[:error] += bond_string
+        flash.now[:error] += bond_string
       end
       @show_bond = @update_bond
       @companies = Company.order("company_name ASC")  

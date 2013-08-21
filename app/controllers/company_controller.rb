@@ -1,5 +1,7 @@
 class CompanyController < ApplicationController
 
+  # before_filter :authenticate_user!,
+
 	def index
 		@companies = Company.order("lower(company_name) ASC")
     render :index
@@ -19,7 +21,7 @@ class CompanyController < ApplicationController
       flash[:error] = "| "
       @new_company.errors.messages.to_a.each do | company | 
         company_string = company[1][0] + " | "
-        flash[:error] += company_string
+        flash.now[:error] += company_string
       end    
       @exchanges = Exchange.order("exchange_name ASC")
   		render :new
@@ -54,7 +56,7 @@ class CompanyController < ApplicationController
       flash[:error] = "| "
       @update_company.errors.messages.to_a.each do | company | 
         company_string = company[1][0] + " | "
-        flash[:error] += company_string
+        flash.now[:error] += company_string
       end
       @show_company = @update_company
       @exchanges = Exchange.order("exchange_name ASC")  

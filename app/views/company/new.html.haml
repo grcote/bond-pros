@@ -2,6 +2,7 @@
 %h4 Create a new company in the database
 %p#required-data &nbsp; * denotes required fields
 %form{:method => "post", :action => "/company"}
+	%input{:type => "hidden", :id => "authenticity_token", :name => "authenticity_token", :value => "5GM8hcnA4JK5gfP5S3mGdbMhiTxkk6R9auCcTHDjMEQ="}
 	%label <font color="#B00000">*</font>Company Name
 	%input{:type => "text", :id => "company_name", :name => "company_name", :value => params[:company_name]}
 	%br

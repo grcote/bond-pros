@@ -1,5 +1,4 @@
-- flash.each do |k,v|
-  - bootstrap_class = {alert: 'alert-error', notice: 'alert-success', info: 'alert-info'}[k]
-  %div{class: [:alert, bootstrap_class]}
+- flash.each do |type,message|
+  %div{class: bootstrap_class_for(type)}
     %button.close{data:{dismiss: :alert}} ×
-    = v
+    = message

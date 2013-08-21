@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '~> 3.2.14'
 gem 'haml'
 gem 'haml-rails'
 # gem 'sass-rails', '~> 3.2'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'devise'
+gem 'cancan'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

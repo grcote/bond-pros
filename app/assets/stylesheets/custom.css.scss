@@ -28,6 +28,24 @@ textarea {
 	}
 }
 
+.alert-success, .alert-error, .alert-block, .alert-info { 
+		text-indent: 5px;
+		line-height: 25pt;
+		border-style: solid;
+		border-width: thin;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+}
+
+.alert-block {
+background-color: #f2dede;
+border-color: #eed3d7;
+color: #b94a48;
+padding-top: 0px;
+padding-bottom: 0px;
+}
 
 /* typography */
 
