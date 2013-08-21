@@ -100,8 +100,9 @@ User.create({
         :username              => "grcote",
         :email                 => "grcote@gmail.com",
         :password              => "marcey",
-        :password_confirmation => "marcey",
-        :admin                 => FALSE
+        :admin                 => 'false',
+        :password_confirmation => "marcey"
+        
 })
 
 User.create({
@@ -109,7 +110,7 @@ User.create({
         :email                 => "ianmcveigh@yahoo.com",
         :password              => "valerie",
         :password_confirmation => "valerie",
-        :admin                 => FALSE
+        :admin                 => 'false'
 })
 
 User.create({
@@ -117,7 +118,7 @@ User.create({
         :email                 => "admin@bondpros.com",
         :password              => "boulder",
         :password_confirmation => "boulder",
-        :admin                 => TRUE
+        :admin                 => 'true'
 })
 
 
