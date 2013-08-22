@@ -20,4 +20,7 @@ class Bond < ActiveRecord::Base
 
   attr_accessible :company_id, :coupon, :cusip, :maturity, :prospectus, :rating
 
+  searchable do
+    text :cusip
+  end
 end

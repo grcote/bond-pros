@@ -1,11 +1,14 @@
 class BondController < ApplicationController
 
   before_filter :authenticate_user!
-  
+
   load_and_authorize_resource
 
   def index
-    @bonds = Bond.order("lower(cusip) ASC")
+    @search = Bond.search do
+      fulltext params[:search]
+    end
+    @bonds = @search.results.sort_by {|e| e[:cusip].downcase}
     render :index
   end
 
