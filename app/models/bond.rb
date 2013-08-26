@@ -26,7 +26,7 @@ class Bond < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['cusip ILIKE?', "%#{search}%"])
+      find(:all, :conditions => ["cusip ILIKE ?", '%' + "#{search}" +'%'])
     else
       find(:all)
     end
