@@ -1,0 +1,2 @@
+module BondprosHelper
+end

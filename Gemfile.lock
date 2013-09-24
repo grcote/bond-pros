@@ -170,7 +170,6 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (= 2.5.0)
-  bcrypt-ruby
   better_errors
   bootstrap-sass (~> 2.3.2.0)
   cancan
@@ -179,6 +178,7 @@ DEPENDENCIES
   haml
   haml-rails
   jquery-rails
+  mail (~> 2.5.4)
   meta_request
   pg (= 0.12.2)
   pry-debugger

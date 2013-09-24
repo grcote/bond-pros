@@ -26,12 +26,23 @@ BondPros::Application.configure do
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
-  # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
+  # ActionMailer::Base.deliveries array. (:smtp, :sendmail, :file, :test)
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "stmp.gmail.com",
+  #   port: 587,
+  #   domain: "pack171boulder.org",
+  #   enable_starttls_auto: true,
+  #   user_name: ENV["cubmaster@pack171boulder.org"],
+  #   password: ENV["packinfo"]
+  # }
 
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+
+
 end

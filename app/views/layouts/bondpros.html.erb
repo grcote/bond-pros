@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BondPros</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <a class="brand" href="#">BondPros</a>
+	    <ul class="nav pull-right">
+	      <li class="active"><a href="#">Home</a></li>
+	      <li><a href="#">About</a></li>
+	      <li><a href="#">New Issues</a></li>
+	      <li><a href="#">2014 Review</a></li>
+	    </ul>
+	  </div>
+	</div>
+	
+	<div class="flash-box">
+		<%= render "layouts/flash_messages" %>
+  </div>
+	
+	<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+%div.left-box
+	%h5 
+		%u Bond Market News
+	%ul.rss-feed-text
+		- unless @bond_rss.nil?
+			- @bond_rss.each do |bond_rss|
+				%li
+					= link_to bond_rss.title, bond_rss.link, :target => '_blank'
+%div.center-box
+	%h4 Type in a CUSIP and hit enter/return
+	= form_tag "/bondpros", :class => "navbar-search pull-left", :method => :get do
+		= text_field_tag :search, nil, :placeholder => "Search CUSIP"
+	- if params[:search] != nil && params[:search].strip != ""
+		%table{:class => "table table-condensed table-striped"}
+			%tr
+			%th{:align => "left"} CUSIP
+			%th Company
+			%th Coupon
+			%th Maturity
+			%th Rating
+			%th{:align => "left"}  Prospectus
+			%tbody
+				- @bonds.each do |bond|
+					%tr			
+						%td
+							= bond.cusip
+						%td
+							= bond.company.company_name
+						%td{:align => "center"}
+							= bond.coupon
+						%td{:align => "center"}
+							= bond.maturity
+						%td{:align => "center"}
+							= bond.rating
+						%td
+							= bond.prospectus
+%div.right-box
+	%h4 Add your name to list
+	%form{ :method => "post", :action => "/bondpros" }
+		%label{ :for => "name"} Name:
+		%input{ :type => "text", :name => "name" }
+		%label{ :for => "email"} Email:
+		%input{ :type => "text", :name => "email" }
+		%input{ :type => "submit", :value => "Submit" }

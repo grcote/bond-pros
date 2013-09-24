@@ -14,7 +14,7 @@ BondPros::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -36,4 +36,18 @@ BondPros::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Tell Action Mailer not to deliver emails to the real world.
+  # The :test delivery method accumulates sent emails in the
+  # ActionMailer::Base.deliveries array. (:smtp, :sendmail, :file, :test)
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "stmp.gmail.com",
+  #   port: 587,
+  #   domain: "pack171boulder.org",
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "chairman@pack171boulder.org",
+  #   password: "packinfo"
+  # }
 end
