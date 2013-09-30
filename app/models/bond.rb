@@ -20,15 +20,18 @@ class Bond < ActiveRecord::Base
 
   attr_accessible :company_id, :coupon, :cusip, :maturity, :prospectus, :rating
 
-  # searchable do
-  #   text :cusip
-  # end
-
   def self.search(search)
     if search
       find(:all, :conditions => ["cusip ILIKE ?", '%' + "#{search}" +'%'])
     else
       find(:all)
+    end
+  end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      binding.pry
+      Bond.create! row.to_hash
     end
   end
 end

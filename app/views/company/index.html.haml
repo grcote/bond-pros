@@ -2,6 +2,7 @@
 %h4 View, Edit or Delete the Companies in the database
 %table{:class => "table table-condensed table-striped"}
 	%tr
+	%th{:align => "left"} ID
 	%th{:align => "left"} Company
 	%th Ticker
 	%th Website
@@ -9,6 +10,8 @@
 	%tbody
 		- @companies.each do |company|
 			%tr			
+				%td
+					= company.id
 				%td
 					= company.company_name
 				%td
@@ -19,7 +22,7 @@
 					= company.exchange.exchange_name
 				- if can? :update, @companies
 					%td
-						= link_to 'Edit', '/company/' + company.id.to_s
+						= link_to 'Edit', '/admin/company/' + company.id.to_s
 				- if can? :destroy, @companies
 					%td
-						= link_to 'Delete', '/company/delete/' + company.id.to_s
+						= link_to 'Delete', '/admin/company/delete/' + company.id.to_s

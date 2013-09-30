@@ -1,7 +1,7 @@
 %h1 Enter a New Company
 %h4 Create a new company in the database
 %p#required-data &nbsp; * denotes required fields
-%form{:method => "post", :action => "/company"}
+%form{:method => "post", :action => "/admin/company"}
 	%input{:type => "hidden", :id => "authenticity_token", :name => "authenticity_token", :value => "5GM8hcnA4JK5gfP5S3mGdbMhiTxkk6R9auCcTHDjMEQ="}
 	-# Documentation of above: http://edgeguides.rubyonrails.org/form_helpers.html
 	%label <font color="#B00000">*</font>Company Name

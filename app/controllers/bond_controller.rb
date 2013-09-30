@@ -33,6 +33,7 @@ class BondController < ApplicationController
   end
 
   def new
+    binding.pry
     @companies = Company.order("company_name ASC")
     render :new
   end
@@ -41,6 +42,16 @@ class BondController < ApplicationController
     @show_bond = Bond.where({ :id => params[:id] }).first
     @companies = Company.order("company_name ASC")
     render :edit
+  end
+
+  def import
+    render :import
+  end
+
+  def import_csv
+    Bond.import(params[:file])
+    flash[:notice] = "New bonds imported."
+    redirect_to bond_index_path 
   end
 
   def show

@@ -7,12 +7,16 @@ BondPros::Application.routes.draw do
   get "/bondpros"                     => "bondpros#index",      :as => "bondpros_index"
   post "/bondpros"                     => "bondpros#create",      :as => "bondpros_create"
 
+  # get "/admin/bond/import"       => "bond#import_csv",      :as => "bond_import"
+
   get  "/admin/bond"              => "bond#index",       :as => "bond_index"
   get  "/admin/bond/new"          => "bond#new",         :as => "bond_new"
   post "/admin/bond"              => "bond#create",      :as => "bond_create"
   get  "/admin/bond/:id"          => "bond#edit",        :as => "bond_edit"
   post "/admin/bond/:id"          => "bond#update",      :as => "bond_update"
   get  "/admin/bond/delete/:id"   => "bond#destroy",     :as => "bond_destroy"
+  get  "/admin/import_csv"        => "bond#import",      :as => "bond_import"
+  post "/admin/import_csv"        => "bond#import_csv",  :as => "bond_import_csv"
 
   get  "/admin/company"              => "company#index",       :as => "company_index"
   get  "/admin/company/new"          => "company#new",         :as => "company_new"

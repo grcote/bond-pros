@@ -7,7 +7,7 @@
 	%th Coupon
 	%th Maturity
 	%th Rating
-	%th{:align => "left"}  Prospectus
+	%th{:align => "center"}  Prospectus
 	%tbody
 		- @bonds.each do |bond|
 			%tr			
@@ -21,11 +21,11 @@
 					= bond.maturity
 				%td{:align => "center"}
 					= bond.rating
-				%td
-					= bond.prospectus
+				%td{:align => "center"}
+					= link_to "View", bond.prospectus, :target => "_blank", :style => "font-size: xx-small"
 				- if can? :update, @bonds
 					%td
-						= link_to 'Edit', '/bond/' + bond.id.to_s
+						= link_to 'Edit', 'bond/' + bond.id.to_s
 				- if can? :destroy, @bonds
 					%td
-						= link_to 'Delete', '/bond/delete/' + bond.id.to_s
+						= link_to 'Delete', 'bond/delete/' + bond.id.to_s
