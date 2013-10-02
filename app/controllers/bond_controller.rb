@@ -33,7 +33,6 @@ class BondController < ApplicationController
   end
 
   def new
-    binding.pry
     @companies = Company.order("company_name ASC")
     render :new
   end

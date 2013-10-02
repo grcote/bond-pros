@@ -17,7 +17,7 @@
 				%td
 					= company.ticker
 				%td{:align => "center"}
-					= company.url
+					= link_to company.url, "http://www." + company.url, :target => "_blank"
 				%td{:align => "center"}
 					= company.exchange.exchange_name
 				- if can? :update, @companies
