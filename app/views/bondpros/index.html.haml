@@ -33,7 +33,7 @@
 						%td{:align => "center"}
 							= bond.rating
 						%td
-							= bond.prospectus
+							= link_to "View", bond.prospectus, :target => "_blank", :style => "font-size: xx-small"
 %div.right-box
 	%h4 Add your name to list
 	%form{ :method => "post", :action => "/bondpros" }
